@@ -5,7 +5,13 @@ const TipoTransacaoError = error{
     ParseError,
 };
 
-const TipoTransacao = enum { c, d };
+pub const TipoTransacao = enum { c, d };
+
+pub const TransacaoReq = struct {
+    valor: i32,
+    tipo: []u8,
+    descricao: []u8,
+};
 
 pub const Transacao = struct {
     valor: i32,
@@ -20,7 +26,7 @@ pub const Transacao = struct {
 
         return Transacao{
             .valor = row.get(i32, 1),
-            .tipo = try parseTransacao(row, 2),
+            .tipo = try parseTransacaoByRow(row, 2),
             .descricao = s_desc,
             .realizada_em = row.get(i64, 4),
         };
@@ -52,7 +58,7 @@ pub const Transacao = struct {
         return transacoes[0..i];
     }
 
-    pub fn parseTransacao(row: pg.Row, pos: usize) !TipoTransacao {
+    pub fn parseTransacaoByRow(row: pg.Row, pos: usize) !TipoTransacao {
         const tipo = row.get([]const u8, pos);
 
         if (tipo[0] == 'd') return TipoTransacao.d;
@@ -61,7 +67,10 @@ pub const Transacao = struct {
         return TipoTransacaoError.ParseError;
     }
 
-    pub fn print(self: Transacao) void {
-        std.debug.print("{}", .{self});
+    pub fn parseTransacao(tipo: []u8) !TipoTransacao {
+        if (tipo[0] == 'd') return TipoTransacao.d;
+        if (tipo[0] == 'c') return TipoTransacao.c;
+
+        return TipoTransacaoError.ParseError;
     }
 };

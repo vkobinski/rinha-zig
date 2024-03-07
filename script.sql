@@ -50,13 +50,3 @@ BEGIN
     (4, 10000000, 0),
     (5, 500000, 0);
 END; $$;
-
-
-DO $$
-BEGIN
-  INSERT INTO transacao (cliente_id, valor, tipo, descricao, realizada_em)
-  VALUES
-    (1, 1000, 'd', 'teste', NOW()),
-    (1, 1000, 'd', 'teste', NOW()),
-    (1, 1000, 'd', 'teste', NOW());
-END; $$
