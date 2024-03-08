@@ -37,10 +37,19 @@ pub fn build(b: *std.Build) !void {
         .optimize = optimize,
     });
 
-    var it = modules.iterator();
-    while (it.next()) |m| {
-        exe.root_module.addImport(m.key_ptr.*, m.value_ptr.*);
-    }
+    const zap = b.dependency("zap", .{
+        .target = target,
+        .optimize = optimize,
+        .openssl = false, // set to true to enable TLS support
+    });
+    _ = zap;
+    //exe.addModule("zap", zap.module("zap"));
+    //exe.linkLibrary(zap.artifact("facil.io"));
+
+    //var it = modules.iterator();
+    //while (it.next()) |m| {
+    //    exe.root_module.addImport(m.key_ptr.*, m.value_ptr.*);
+    //}
 
     exe.linkLibC();
 

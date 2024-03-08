@@ -1,0 +1,150 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 670B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/debian:bullseye-slim
+#3 DONE 3.1s
+
+#4 [1/9] FROM docker.io/library/debian:bullseye-slim@sha256:c6d9e246479d56687c1a579a7a0336956a5ce6f2bc26bd7925b0c7405e81dbff
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 307B done
+#5 DONE 0.0s
+
+#6 [2/9] RUN  apt-get update   && apt-get install -y wget unzip tar xz-utils   && rm -rf /var/lib/apt/lists/*
+#6 4.155 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+#6 5.070 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [48.4 kB]
+#6 5.165 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+#6 5.448 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8068 kB]
+#6 7.821 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [269 kB]
+#6 7.965 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#6 8.682 Fetched 8564 kB in 8s (1026 kB/s)
+#6 8.682 Reading package lists...
+#6 9.050 Reading package lists...
+#6 9.465 Building dependency tree...
+#6 9.544 Reading state information...
+#6 9.648 tar is already the newest version (1.34+dfsg-1+deb11u1).
+#6 9.648 tar set to manually installed.
+#6 9.648 The following additional packages will be installed:
+#6 9.648   ca-certificates libpsl5 openssl publicsuffix
+#6 9.649 Suggested packages:
+#6 9.649   zip
+#6 9.703 The following NEW packages will be installed:
+#6 9.704   ca-certificates libpsl5 openssl publicsuffix unzip wget xz-utils
+#6 9.792 0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+#6 9.792 Need to get 2558 kB of archives.
+#6 9.792 After this operation, 6918 kB of additional disk space will be used.
+#6 9.792 Get:1 http://deb.debian.org/debian bullseye/main amd64 openssl amd64 1.1.1w-0+deb11u1 [859 kB]
+#6 10.27 Get:2 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
+#6 10.41 Get:3 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
+#6 10.52 Get:4 http://deb.debian.org/debian bullseye/main amd64 wget amd64 1.21-1+deb11u1 [964 kB]
+#6 10.97 Get:5 http://deb.debian.org/debian bullseye/main amd64 xz-utils amd64 5.2.5-2.1~deb11u1 [220 kB]
+#6 11.25 Get:6 http://deb.debian.org/debian bullseye/main amd64 publicsuffix all 20220811.1734-0+deb11u1 [127 kB]
+#6 11.37 Get:7 http://deb.debian.org/debian bullseye/main amd64 unzip amd64 6.0-26+deb11u1 [172 kB]
+#6 11.62 debconf: delaying package configuration, since apt-utils is not installed
+#6 11.65 Fetched 2558 kB in 2s (1455 kB/s)
+#6 11.69 Selecting previously unselected package openssl.
+#6 11.69 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6670 files and directories currently installed.)
+#6 11.69 Preparing to unpack .../0-openssl_1.1.1w-0+deb11u1_amd64.deb ...
+#6 11.70 Unpacking openssl (1.1.1w-0+deb11u1) ...
+#6 11.82 Selecting previously unselected package ca-certificates.
+#6 11.82 Preparing to unpack .../1-ca-certificates_20210119_all.deb ...
+#6 11.83 Unpacking ca-certificates (20210119) ...
+#6 11.91 Selecting previously unselected package libpsl5:amd64.
+#6 11.91 Preparing to unpack .../2-libpsl5_0.21.0-1.2_amd64.deb ...
+#6 11.93 Unpacking libpsl5:amd64 (0.21.0-1.2) ...
+#6 12.00 Selecting previously unselected package wget.
+#6 12.00 Preparing to unpack .../3-wget_1.21-1+deb11u1_amd64.deb ...
+#6 12.01 Unpacking wget (1.21-1+deb11u1) ...
+#6 12.18 Selecting previously unselected package xz-utils.
+#6 12.18 Preparing to unpack .../4-xz-utils_5.2.5-2.1~deb11u1_amd64.deb ...
+#6 12.19 Unpacking xz-utils (5.2.5-2.1~deb11u1) ...
+#6 12.26 Selecting previously unselected package publicsuffix.
+#6 12.26 Preparing to unpack .../5-publicsuffix_20220811.1734-0+deb11u1_all.deb ...
+#6 12.27 Unpacking publicsuffix (20220811.1734-0+deb11u1) ...
+#6 12.36 Selecting previously unselected package unzip.
+#6 12.36 Preparing to unpack .../6-unzip_6.0-26+deb11u1_amd64.deb ...
+#6 12.37 Unpacking unzip (6.0-26+deb11u1) ...
+#6 12.48 Setting up libpsl5:amd64 (0.21.0-1.2) ...
+#6 12.50 Setting up wget (1.21-1+deb11u1) ...
+#6 12.53 Setting up unzip (6.0-26+deb11u1) ...
+#6 12.55 Setting up xz-utils (5.2.5-2.1~deb11u1) ...
+#6 12.57 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+#6 12.57 update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+#6 12.59 Setting up openssl (1.1.1w-0+deb11u1) ...
+#6 12.62 Setting up publicsuffix (20220811.1734-0+deb11u1) ...
+#6 12.64 Setting up ca-certificates (20210119) ...
+#6 12.75 debconf: unable to initialize frontend: Dialog
+#6 12.75 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 12.75 debconf: falling back to frontend: Readline
+#6 12.75 debconf: unable to initialize frontend: Readline
+#6 12.75 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.32.1 /usr/local/share/perl/5.32.1 /usr/lib/x86_64-linux-gnu/perl5/5.32 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.32 /usr/share/perl/5.32 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#6 12.75 debconf: falling back to frontend: Teletype
+#6 13.17 Updating certificates in /etc/ssl/certs...
+#6 13.87 129 added, 0 removed; done.
+#6 13.92 Processing triggers for libc-bin (2.31-13+deb11u8) ...
+#6 13.95 Processing triggers for ca-certificates (20210119) ...
+#6 13.96 Updating certificates in /etc/ssl/certs...
+#6 14.50 0 added, 0 removed; done.
+#6 14.50 Running hooks in /etc/ca-certificates/update.d...
+#6 14.50 done.
+#6 DONE 14.6s
+
+#7 [3/9] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [4/9] RUN wget -q https://ziglang.org/builds/zig-linux-x86_64-0.12.0-dev.3180+83e578a18.tar.xz &&     tar -xf zig-linux-x86_64-0.12.0-dev.3180+83e578a18.tar.xz  &&     mv zig-linux-x86_64-0.12.0-dev.3180+83e578a18/zig .      && chmod +x ./zig
+#8 DONE 28.5s
+
+#9 [5/9] COPY ./src .
+#9 DONE 0.1s
+
+#10 [6/9] COPY ./build.zig .
+#10 DONE 0.1s
+
+#11 [7/9] COPY ./build.zig.zon .
+#11 DONE 0.2s
+
+#12 [8/9] RUN ls
+#12 0.392 build.zig
+#12 0.392 build.zig.zon
+#12 0.392 main.zig
+#12 0.392 models
+#12 0.392 root.zig
+#12 0.392 zig
+#12 0.392 zig-linux-x86_64-0.12.0-dev.3180+83e578a18
+#12 0.392 zig-linux-x86_64-0.12.0-dev.3180+83e578a18.tar.xz
+#12 DONE 0.4s
+
+#13 [9/9] RUN ./zig build
+#13 0.431 error: unable to find zig installation directory '/app/zig': FileNotFound
+#13 ERROR: process "/bin/sh -c ./zig build" did not complete successfully: exit code: 1
+------
+ > [9/9] RUN ./zig build:
+0.431 error: unable to find zig installation directory '/app/zig': FileNotFound
+------
+Dockerfile:24
+--------------------
+  22 |     
+  23 |     # Build the Zig application
+  24 | >>> RUN ./zig build
+  25 |     
+  26 |     # Specify the command to run when the container starts
+--------------------
+ERROR: failed to solve: process "/bin/sh -c ./zig build" did not complete successfully: exit code: 1

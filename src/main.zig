@@ -77,8 +77,10 @@ pub fn main() !void {
 
     var global = Global{ .alloc = allocator, .pool = pool };
 
-    const port = 9999;
-    var server = try httpz.ServerCtx(*Global, *Global).init(allocator, .{ .port = port }, &global);
+    const port_env = std.os.getenv("PORT") orelse "3000";
+    const PORT = try std.fmt.parseInt(u16, port_env, 10);
+
+    var server = try httpz.ServerCtx(*Global, *Global).init(allocator, .{ .port = PORT }, &global);
     server.notFound(notFound);
     server.errorHandler(errorHandler);
 
@@ -90,6 +92,6 @@ pub fn main() !void {
     router.get("/clientes/:id/extrato", get_extrato);
 
     // start the server in the current thread, blocking.
-    std.debug.print("Staring Server at Port: {}\n", .{port});
+    std.debug.print("Staring Server at Port: {}\n", .{PORT});
     try server.listen();
 }
